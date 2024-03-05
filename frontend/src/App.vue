@@ -1,5 +1,5 @@
 <template>
-  <header :class="sidebarClass">
+  <header class="sidebar" :class="ClassSidebarHidden">
     <div class="p-4">
       <span role="img" class="logo" aria-label="Logo in plain text">TODO</span>
       <button
@@ -60,11 +60,11 @@ export default {
     },
   },
   computed: {
-    sidebarClass() {
+    ClassSidebarHidden() {
       if (this.sidebarHidden) {
-        return "sidebar-hidden";
+        return "hidden";
       } else {
-        return "sidebar";
+        return "";
       }
     },
   },

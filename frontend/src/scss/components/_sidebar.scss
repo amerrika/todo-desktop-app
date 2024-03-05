@@ -6,6 +6,7 @@
   width: clamp(20rem, 25vw, 30rem);
   display: flex;
   flex-direction: column;
+  transition: 0.5s;
 
   > div:first-of-type {
     display: flex;
@@ -30,6 +31,7 @@
   }
 
   nav {
+    animation: fadeIn 1s;
     a {
       color: $neutral-400;
       font-size: $fs-500;
@@ -59,8 +61,36 @@
     align-items: flex-end;
 
     .copyright {
+      animation: fadeIn 10s;
       display: flex;
       flex-wrap: wrap;
+    }
+  }
+
+  &.hidden {
+    width: 7rem;
+
+    > div:first-of-type {
+      .btn-toggle-sidebar {
+        @extend %btn;
+        width: 3rem;
+        height: 3rem;
+        background: url($icon-right);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    nav {
+      display: none;
+    }
+
+    .logo {
+      display: none;
+    }
+
+    > div:last-of-type {
+      display: none;
     }
   }
 
@@ -69,40 +99,11 @@
   }
 }
 
-/// Styles for hidden sidebar ///
-.sidebar-hidden {
-  background-color: $bg-dark;
-  height: 100vh;
-  width: fit-content;
-
-  > div:first-of-type {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .btn-toggle-sidebar {
-      @extend %btn;
-      width: 3rem;
-      height: 3rem;
-      background: url($icon-right);
-      background-repeat: no-repeat;
-      background-position: center;
-    }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-
-  nav {
-    display: none;
-  }
-
-  .logo {
-    display: none;
-  }
-
-  > div:last-of-type {
-    display: none;
-  }
-
-  @media print {
-    display: none;
+  100% {
+    opacity: 1;
   }
 }

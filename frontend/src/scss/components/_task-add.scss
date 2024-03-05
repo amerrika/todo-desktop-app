@@ -1,0 +1,59 @@
+@use "../abstracts/" as *;
+
+.task-add {
+  background-color: $bg-dark;
+  display: grid;
+  gap: 1.5rem;
+
+  .btn-open-editor {
+    @extend %btn-flex;
+    gap: 2rem;
+
+    img {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+  &__editor {
+    display: grid;
+    gap: 2rem;
+    input {
+      border: none;
+      background: none;
+      border-bottom: 1px solid $neutral-800;
+      @include focus($neutral-700);
+    }
+    select {
+      font-size: $fs-100;
+      font-weight: $fw-500;
+      cursor: pointer;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      background-color: $neutral-800;
+      color: $neutral-500;
+      width: fit-content;
+    }
+    // buttons
+    > div:last-of-type {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.btn-disabled {
+  pointer-events: none;
+}
+
+.btn-save-task {
+  &.btn-disabled {
+    opacity: 0.6;
+  }
+}

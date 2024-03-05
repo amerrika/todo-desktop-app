@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+
+#app {
+  display: flex;
+}
+
+main {
+  background-color: $bg-very-dark;
+  flex-grow: 2;
+}
+

@@ -1,15 +1,28 @@
+@use "./mixins" as *;
+
 %btn {
   border: none;
   background: none;
-  display: grid;
-  place-content: center;
   cursor: pointer;
-}
+  @include focus;
 
-%btn-flex {
-  border: none;
-  background: none;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
+  &-center {
+    @extend %btn;
+    display: grid;
+    place-content: center;
+  }
+
+  &-flex-between {
+    @extend %btn;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-flex-start {
+    @extend %btn;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
 }

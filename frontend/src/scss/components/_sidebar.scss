@@ -21,7 +21,7 @@
     }
 
     .btn-toggle-sidebar {
-      @extend %btn;
+      @extend %btn-center;
       width: 3rem;
       height: 3rem;
       background: url($icon-left);

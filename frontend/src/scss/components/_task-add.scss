@@ -6,7 +6,7 @@
   gap: 1.5rem;
 
   .btn-open-editor {
-    @extend %btn-flex;
+    @extend %btn-flex-start;
     gap: 2rem;
 
     img {

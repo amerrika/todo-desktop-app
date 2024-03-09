@@ -22,11 +22,7 @@
         v-model="newTask.description"
         placeholder="Description"
       />
-      <select name="priority" id="select-priority" v-model="newTask.priority">
-        <option value="p0" selected>Priority</option>
-        <option value="p1">Priority 1</option>
-        <option value="p2">Priority 2</option>
-      </select>
+      <SelectOptions />
       <div>
         <button
           class="button"
@@ -51,8 +47,12 @@
 
 <script>
 import TaskDataService from "@/services/TaskDataService";
+import SelectOptions from "@/components/SelectOptions.vue";
 
 export default {
+  components: {
+    SelectOptions
+  },
   emits: ["taskAdded"],
   data() {
     return {

@@ -4,7 +4,7 @@
   position: relative;
 
   button {
-    @extend %btn-flex-start;
+    @extend %btn-flex-between;
     img {
       width: 2rem;
       height: 2rem;
@@ -37,20 +37,24 @@
     button {
       padding-block: 0.5rem;
       padding-inline: 1rem;
-      background-color: $neutral-200;
+      background-color: $neutral-800;
+      color: $neutral-500;
       border-radius: 0.5rem;
-      font-size: $fs-200;
+      font-size: $fs-100;
       font-weight: $fw-500;
+      min-width: 12rem;
     }
 
     ul {
-      background-color: $neutral-200;
+      background-color: $neutral-800;
+      color: $neutral-500;
       padding-inline: 1rem;
       padding-block: 1rem;
-      font-size: $fs-200;
+      font-size: $fs-100;
       font-weight: $fw-500;
       gap: 1rem;
       border-radius: 0.5rem;
+      min-width: 12rem;
       li[aria-selected="true"] {
         &::after {
           height: 12px;

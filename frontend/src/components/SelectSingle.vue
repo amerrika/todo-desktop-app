@@ -77,13 +77,6 @@ export default {
       return this.optionsList.find((option) => option.isSelected === true);
     },
   },
-  mounted() {
-    // get width of the toggle button
-    const btnToggleWidth =
-      this.$refs.selectButton.getBoundingClientRect().width;
-    // set menu width = button width
-    this.$refs.selectMenu.style["min-width"] = `${btnToggleWidth}px`;
-  },
 };
 </script>
 

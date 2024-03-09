@@ -24,7 +24,6 @@
           ></div>
           <p>{{ option.option }}</p>
         </li>
-        {{ selectedOption }}
       </ul>
     </Transition>
   </div>
@@ -50,7 +49,7 @@ export default {
           isSelected: false,
         },
       ],
-      isMenuOpen: true,
+      isMenuOpen: false,
       selectedOption: null,
     };
   },
@@ -69,6 +68,12 @@ export default {
       });
       // update selectedOption
       this.selectedOption = this.returnSelectedOption;
+      // validate selectedOption & emit value of selected priority
+      if (this.selectedOption) {
+        this.$emit("selectedPriority", this.selectedOption.value);
+      } else {
+        this.$emit("selectedPriority", "p0");
+      }
     },
   },
   computed: {

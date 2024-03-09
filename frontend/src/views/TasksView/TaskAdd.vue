@@ -22,7 +22,7 @@
         v-model="newTask.description"
         placeholder="Description"
       />
-      <SelectOptions />
+      <SelectSingle class="default" />
       <div>
         <button
           class="button"
@@ -47,11 +47,11 @@
 
 <script>
 import TaskDataService from "@/services/TaskDataService";
-import SelectOptions from "@/components/SelectOptions.vue";
+import SelectSingle from "@/components/SelectSingle.vue";
 
 export default {
   components: {
-    SelectOptions
+    SelectSingle
   },
   emits: ["taskAdded"],
   data() {

@@ -22,7 +22,11 @@
         v-model="newTask.description"
         placeholder="Description"
       />
-      <SelectSingle class="default" />
+      <SelectSingle
+        class="default"
+        @selected-priority="updatePriority"
+        :key="componentKey"
+      />
       <div>
         <button
           class="button"
@@ -51,7 +55,7 @@ import SelectSingle from "@/components/SelectSingle.vue";
 
 export default {
   components: {
-    SelectSingle
+    SelectSingle,
   },
   emits: ["taskAdded"],
   data() {
@@ -64,6 +68,7 @@ export default {
         isCompleted: false,
       },
       isOpened: false,
+      componentKey: 1,
     };
   },
   methods: {
@@ -88,6 +93,7 @@ export default {
           this.isOpened = false;
           this.$emit("taskAdded");
           this.newTask = this.initialNewTask();
+          this.componentKey = 2;
         })
         .catch((err) => {
           console.log(err);
@@ -101,6 +107,9 @@ export default {
         priority: "p0",
         isCompleted: false,
       };
+    },
+    updatePriority(value) {
+      this.newTask.priority = value;
     },
   },
   computed: {

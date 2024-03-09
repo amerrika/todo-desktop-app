@@ -1,21 +1,22 @@
 @use "../abstracts/" as *;
 
-.select {
+.select-single {
   position: relative;
+
+  button {
+    @extend %btn-flex-start;
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
   ul {
-    background-color: $neutral-200;
-    padding-inline: 1rem;
-    padding-block: 1rem;
-    font-size: $fs-200;
-    font-weight: $fw-500;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border-radius: 0.5rem;
     position: absolute;
     top: 125%;
     left: 0;
-
+    display: flex;
+    flex-direction: column;
     li {
       position: relative;
       @extend %btn-flex-start;
@@ -27,6 +28,31 @@
           right: 0;
           display: inline-block;
           transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &.default {
+    button {
+      padding-block: 0.5rem;
+      padding-inline: 1rem;
+      background-color: $neutral-200;
+      border-radius: 0.5rem;
+      font-size: $fs-200;
+      font-weight: $fw-500;
+    }
+
+    ul {
+      background-color: $neutral-200;
+      padding-inline: 1rem;
+      padding-block: 1rem;
+      font-size: $fs-200;
+      font-weight: $fw-500;
+      gap: 1rem;
+      border-radius: 0.5rem;
+      li[aria-selected="true"] {
+        &::after {
           height: 12px;
           width: 6px;
           border-bottom: 3px solid $blue-highlight;
@@ -34,20 +60,5 @@
         }
       }
     }
-  }
-}
-
-.btn-toggle-menu {
-  @extend %btn-flex-start;
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
-  background-color: $neutral-200;
-  border-radius: 0.5rem;
-  font-size: $fs-200;
-  font-weight: $fw-500;
-
-  img {
-    width: 2rem;
-    height: 2rem;
   }
 }

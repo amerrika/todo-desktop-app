@@ -5,7 +5,7 @@
       aria-label="Select priority for the task"
       @click="toggleMenu"
     >
-      <span v-if="!selectedOption">Select priority</span>
+      <span v-if="!selectedOption">Priority</span>
       <span v-else>{{ selectedOption.option }}</span>
       <img src="../assets/icon-dropdown.svg" alt="" />
     </button>
@@ -51,7 +51,7 @@ export default {
       ],
       isMenuOpen: true,
       selectedOption: {
-        option: "Select priority",
+        option: "Priority",
       },
     };
   },

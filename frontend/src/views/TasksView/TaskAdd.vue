@@ -93,7 +93,7 @@ export default {
           this.isOpened = false;
           this.$emit("taskAdded");
           this.newTask = this.initialNewTask();
-          this.componentKey = 2;
+          this.rerenderSelect();
         })
         .catch((err) => {
           console.log(err);
@@ -110,6 +110,9 @@ export default {
     },
     updatePriority(value) {
       this.newTask.priority = value;
+    },
+    rerenderSelect() {
+      this.componentKey = 2;
     },
   },
   computed: {

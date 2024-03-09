@@ -1,13 +1,12 @@
 <template>
-  <div class="select" role="listbox">
+  <div class="select-single" role="listbox">
     <button
       ref="selectButton"
-      class="btn-toggle-menu"
       aria-label="Select priority for the task"
       @click="toggleMenu"
     >
-      <span v-if="selectedOption">{{ selectedOption.option }}</span>
-      <span v-else>Select priority</span>
+      <span v-if="!selectedOption">Select priority</span>
+      <span v-else>{{ selectedOption.option }}</span>
       <img src="../assets/icon-dropdown.svg" alt="" />
     </button>
     <Transition v-show="isMenuOpen">

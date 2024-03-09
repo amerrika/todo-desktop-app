@@ -24,6 +24,7 @@
           ></div>
           <p>{{ option.option }}</p>
         </li>
+        {{ selectedOption }}
       </ul>
     </Transition>
   </div>
@@ -50,9 +51,7 @@ export default {
         },
       ],
       isMenuOpen: true,
-      selectedOption: {
-        option: "Priority",
-      },
+      selectedOption: null,
     };
   },
   methods: {

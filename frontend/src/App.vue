@@ -29,7 +29,7 @@
     <div class="p-4">
       <div class="copyright">
         <p class="fs-100 txt-neutral-100">© 2024. Made with ❤️ by&nbsp;</p>
-        <a class="fs-100 txt-project-blue" href="https://github.com/amerrika">Amer Tricic</a>
+        <a class="fs-100 txt-primary-blue" href="https://github.com/amerrika">Amer Tricic</a>
       </div>
     </div>
   </header>

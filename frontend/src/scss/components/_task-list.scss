@@ -52,6 +52,11 @@
       }
     }
   }
+
+  button,
+  a {
+    @include focus($neutral-700);
+  }
 }
 
 .task-checkbox {

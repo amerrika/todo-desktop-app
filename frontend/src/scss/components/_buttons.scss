@@ -16,7 +16,7 @@
   background-color: $button-default-bg;
   border: $button-border;
   border-radius: $button-br;
-  transition: 275ms ease;
+  //transition: 275ms ease;
   width: fit-content;
 
   @include hover-underline(1px);

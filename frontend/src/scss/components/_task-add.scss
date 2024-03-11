@@ -46,6 +46,10 @@
   @media print {
     display: none;
   }
+
+  button {
+    @include focus($neutral-700)
+  }
 }
 
 .btn-disabled {

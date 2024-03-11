@@ -3,7 +3,7 @@
     <TaskAdd @task-added="refreshRequired = true" />
     <TaskList
       :refreshRequired="refreshRequiredReactive"
-      @task-details-clicked="handleTaskDetails"
+      @task-details-opened="handleTaskDetails"
     />
     <TaskDetails
       v-if="showTaskDetails"

@@ -9,7 +9,7 @@
     <ul class="task-list__content p-4">
       <li v-for="task in taskList" :class="{ completed: task.isComplete }">
         <button
-          class="task-checkbox"
+          :class="['task-checkbox', priorityColor(task)]"
           type="button"
           role="checkbox"
           aria-checked="false"
@@ -81,6 +81,16 @@ export default {
     },
     emitTaskDetailsClicked(id) {
       this.$emit("taskDetailsClicked", id);
+    },
+    priorityColor(task) {
+      switch (task.priority) {
+        case "p1":
+          return "bc-priority-red";
+        case "p2":
+          return "bc-priority-yellow";
+        default:
+          return "bc-neutral-700";
+      }
     },
   },
   created() {

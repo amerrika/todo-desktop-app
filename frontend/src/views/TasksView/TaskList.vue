@@ -41,7 +41,7 @@ export default {
   props: {
     refreshRequired: Boolean,
   },
-  emits: ["taskDetailsClicked"],
+  emits: ["taskDetailsOpened"],
   data() {
     return {
       taskList: [],
@@ -80,7 +80,7 @@ export default {
       window.print();
     },
     emitTaskDetailsClicked(id) {
-      this.$emit("taskDetailsClicked", id);
+      this.$emit("taskDetailsOpened", id);
     },
     priorityColor(task) {
       switch (task.priority) {

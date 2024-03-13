@@ -1,15 +1,19 @@
 <template>
-  <div class="tasks-view" :data-show-taskdetails="mountTaskDetails">
-    <TaskAdd @task-added="refreshRequired = true" />
+  <div class="tasks-view">
+    <TaskAdd v-if="!showTaskDetails" @task-added="refreshRequired = true" />
+
     <TaskList
+      v-if="!showTaskDetails"
       :refreshRequired="refreshRequiredReactive"
       @task-details-opened="handleTaskDetails"
     />
-    <TaskDetails
-      v-if="showTaskDetails"
-      @close-task-details="showTaskDetails = false"
-      :task-id="taskIdReactive"
-    />
+
+    <Transition>
+      <TaskDetails
+        v-if="showTaskDetails"
+        @close-task-details="showTaskDetails = false"
+        :task-id="taskIdReactive"
+    /></Transition>
   </div>
 </template>
 
@@ -30,6 +34,7 @@ export default {
       refreshRequired: false,
       showTaskDetails: false,
       taskId: null,
+      isVisible: false,
     };
   },
   methods: {
@@ -44,13 +49,6 @@ export default {
     },
     taskIdReactive() {
       return this.taskId;
-    },
-    mountTaskDetails() {
-      if (this.showTaskDetails) {
-        return true;
-      } else {
-        return false;
-      }
     },
   },
 };

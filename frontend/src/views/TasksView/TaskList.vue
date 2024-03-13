@@ -7,7 +7,11 @@
     </div>
     <!-- list -->
     <ul class="task-list__content p-4">
-      <li v-for="task in taskList" :class="{ completed: task.isComplete }">
+      <li
+        v-if="taskList.length"
+        v-for="task in taskList"
+        :class="{ completed: task.isComplete }"
+      >
         <button
           :class="['task-checkbox', priorityColor(task)]"
           type="button"
@@ -29,6 +33,7 @@
           @click="deleteTask(task['_id'])"
         ></button>
       </li>
+      <li v-else class="fs-400 txt-neutral-400 fw-500">There are no tasks available!</li>
     </ul>
   </div>
 </template>

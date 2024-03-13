@@ -12,16 +12,6 @@
   @media print {
     background: none;
   }
-
-  &[data-show-taskdetails="true"]{
-    .task-add,
-    .task-list {
-      display: none;
-    }
-    .task-details {
-      display: grid;
-    }
-  }
 }
 
 

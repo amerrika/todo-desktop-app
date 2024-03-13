@@ -20,7 +20,7 @@
           href="#"
           class="fs-400 txt-neutral-400 fw-500"
           aria-label="Open task details"
-          @click="emitTaskDetailsClicked(task['_id'])"
+          @click="emitTaskDetailsOpened(task['_id'])"
         >
           {{ task.title }}
         </a>
@@ -79,7 +79,7 @@ export default {
     printTaskList() {
       window.print();
     },
-    emitTaskDetailsClicked(id) {
+    emitTaskDetailsOpened(id) {
       this.$emit("taskDetailsOpened", id);
     },
     priorityColor(task) {
@@ -104,7 +104,7 @@ export default {
     },
     taskList: {
       handler() {
-        // sort tasks, top priority first
+        // sort tasks - top priority first
         this.taskList.sort((a, b) => a.priority.localeCompare(b.priority));
       },
     },

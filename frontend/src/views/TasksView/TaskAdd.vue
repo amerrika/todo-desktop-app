@@ -64,7 +64,7 @@ export default {
         id: null,
         title: "",
         description: "",
-        priority: "p0",
+        priority: 0,
         isCompleted: false,
       },
       isOpened: false,
@@ -104,7 +104,7 @@ export default {
         id: null,
         title: "",
         description: "",
-        priority: "p0",
+        priority: 0,
         isCompleted: false,
       };
     },

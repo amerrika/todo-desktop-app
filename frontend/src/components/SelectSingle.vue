@@ -37,14 +37,14 @@ export default {
         {
           id: 1,
           option: "Priority 1",
-          value: "p1",
+          value: 1,
           color: "red",
           isSelected: false,
         },
         {
           id: 2,
           option: "Priority 2",
-          value: "p2",
+          value: 2,
           color: "yellow",
           isSelected: false,
         },
@@ -72,7 +72,7 @@ export default {
       if (this.selectedOption) {
         this.$emit("selectedPriority", this.selectedOption.value);
       } else {
-        this.$emit("selectedPriority", "p0");
+        this.$emit("selectedPriority", 0);
       }
     },
   },

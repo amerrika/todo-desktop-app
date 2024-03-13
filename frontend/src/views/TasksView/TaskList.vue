@@ -84,9 +84,9 @@ export default {
     },
     priorityColor(task) {
       switch (task.priority) {
-        case "p1":
+        case "a":
           return "bc-priority-red";
-        case "p2":
+        case "b":
           return "bc-priority-yellow";
         default:
           return "bc-neutral-700";
@@ -100,6 +100,12 @@ export default {
     refreshRequired: {
       handler() {
         this.refreshTaskList();
+      },
+    },
+    taskList: {
+      handler() {
+        // sort tasks, top priority first
+        this.taskList.sort((a, b) => a.priority.localeCompare(b.priority));
       },
     },
   },

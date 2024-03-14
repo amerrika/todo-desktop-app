@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    position: relative;
 
     li {
       display: flex;
@@ -40,6 +41,21 @@
         @media print {
           color: #000;
           font-size: 14pt;
+        }
+      }
+
+      &.completed {
+        a {
+          text-decoration-line: line-through;
+          color: $neutral-800;
+        }
+
+        .task-checkbox {
+          background-color: $blue-highlight;
+          border-color: $blue-highlight;
+          background-image: url($icon-check);
+          background-position: center;
+          background-repeat: no-repeat;
         }
       }
     }
@@ -98,20 +114,5 @@
 
   &:hover {
     transform: scale(1.3);
-  }
-}
-
-.completed {
-  a {
-    text-decoration-line: line-through;
-    color: $neutral-800;
-  }
-
-  .task-checkbox {
-    background-color: $blue-highlight;
-    border-color: $blue-highlight;
-    background-image: url($icon-check);
-    background-position: center;
-    background-repeat: no-repeat;
   }
 }

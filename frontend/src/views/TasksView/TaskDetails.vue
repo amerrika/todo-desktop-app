@@ -49,7 +49,7 @@ export default {
   props: {
     taskId: String,
   },
-  emits: ["closeTaskDetails"],
+  emits: ["taskDetailsClosed"],
   data() {
     return {
       currentTask: {
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     closeTaskDetails() {
-      this.$emit("closeTaskDetails");
+      this.$emit("taskDetailsClosed");
     },
     retrieveTask() {
       TaskDataService.get(this.taskId)

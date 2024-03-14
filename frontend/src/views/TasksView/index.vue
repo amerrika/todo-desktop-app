@@ -1,19 +1,20 @@
 <template>
   <div class="tasks-view">
-    <TaskAdd v-if="!showTaskDetails" @task-added="refreshRequired = true" />
+    <Transition name="switch" mode="out-in">
+      <div v-if="!taskDetailsDisplayed">
+        <TaskAdd @task-added="refreshRequired = true" />
+        <TaskList
+          :refreshRequired="refreshRequiredReactive"
+          @task-details-opened="openTaskDetails"
+        />
+      </div>
 
-    <TaskList
-      v-if="!showTaskDetails"
-      :refreshRequired="refreshRequiredReactive"
-      @task-details-opened="handleTaskDetails"
-    />
-
-    <Transition>
       <TaskDetails
-        v-if="showTaskDetails"
-        @close-task-details="showTaskDetails = false"
+        v-else
+        @task-details-closed="closeTaskDetails"
         :task-id="taskIdReactive"
-    /></Transition>
+      />
+    </Transition>
   </div>
 </template>
 
@@ -32,15 +33,17 @@ export default {
   data() {
     return {
       refreshRequired: false,
-      showTaskDetails: false,
+      taskDetailsDisplayed: false,
       taskId: null,
-      isVisible: false,
     };
   },
   methods: {
-    handleTaskDetails(id) {
+    openTaskDetails(id) {
       this.taskId = id;
-      this.showTaskDetails = true;
+      this.taskDetailsDisplayed = true;
+    },
+    closeTaskDetails() {
+      this.taskDetailsDisplayed = false;
     },
   },
   computed: {

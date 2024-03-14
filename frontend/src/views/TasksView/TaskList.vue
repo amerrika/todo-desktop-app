@@ -6,10 +6,11 @@
       <button class="btn-print" @click="printTaskList"></button>
     </div>
     <!-- list -->
-    <ul class="task-list__content p-4">
+    <TransitionGroup class="task-list__content p-4" tag="ul" name="list">
       <li
         v-if="taskList.length"
         v-for="task in taskList"
+        :key="task['_id']"
         :class="{ completed: task.isComplete }"
       >
         <button
@@ -34,7 +35,7 @@
         ></button>
       </li>
       <li v-else class="fs-400 txt-neutral-400 fw-500">There are no tasks available!</li>
-    </ul>
+    </TransitionGroup>
   </div>
 </template>
 

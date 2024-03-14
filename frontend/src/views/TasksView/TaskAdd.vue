@@ -1,5 +1,5 @@
 <template>
-  <div class="task-add p-4 br-10">
+  <div class="task-add p-4 br-10 mb-end-5">
     <button
       class="btn-open-editor"
       v-show="!isOpened"
